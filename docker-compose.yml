@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    image: integration-platform
+    ports:
+      - "8081:8081"
+  postgres:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=username
+      - POSTGRES_DB=db
