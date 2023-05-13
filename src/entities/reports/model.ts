@@ -6,8 +6,13 @@ export class Report {
     id: number
 
     @Column()
-    power: number
+    private power: number
 
     @Column()
-    time: number
+    private time: number
+
+    constructor(power: number, time: number) {
+        this.power = power
+        this.time = time
+    }
 }

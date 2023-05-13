@@ -3,9 +3,7 @@ import { Report } from '.'
 
 export class ReportService {
     public static createReport = async (power: number, time: number) => {
-        const report = new Report()
-        report.power = power
-        report.time = time
+        const report = new Report(power, time)
 
         await AppDataSource.manager.save(report)
         console.log('Report has been saved. ReportID: ', report.id)
