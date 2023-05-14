@@ -4,8 +4,7 @@ import ReportRepository from './db'
 export class ReportService {
     public static createReport = async (power: number, time: number) => {
         const report = new Report(power, time)
-        const db = ReportRepository.getInstance()
-        await db.save(report)
+        await ReportRepository.client.save(report)
         
         console.log('Report has been saved. ReportID: ', report.id)
 
@@ -13,8 +12,7 @@ export class ReportService {
     }
 
     public static getReports = async () => {
-        const db = ReportRepository.getInstance()
-        const reports = await db.find()
+        const reports = await ReportRepository.client.find()
 
         console.log('All reports from DB: ', reports)
 

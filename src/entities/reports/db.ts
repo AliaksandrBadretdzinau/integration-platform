@@ -3,13 +3,15 @@ import { AppDataSource } from '../../data-source'
 import { Report } from './model'
 
 export default class ReportRepository {
-    private static instance: Repository<Report>
+    private static _client: Repository<Report>
+
+    private constructor() {}
     
-    public static getInstance(): Repository<Report> {
-        if (!ReportRepository.instance) {
-            ReportRepository.instance = AppDataSource.getRepository(Report)
+    public static get client(): Repository<Report> {
+        if (!this._client) {
+            this._client = AppDataSource.getRepository(Report)
         }
 
-        return this.instance
+        return this._client
     }
 }

@@ -17,7 +17,7 @@ reportRouter.post(
     validateRoute(schema),
     async (req: Request, res: Response) => {
         const { power, time } = req.body
-        const report = await ReportService.createReport(power, time);
+        const report = await ReportService.createReport(power, time)
 
         res.status(201).json(report)
     }
